@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cc.catface.mds.dao.IPersonDao"> <!-- namespace对应DAO所在包类路径 -->
+
+
+    <select id="addPerson" parameterType="cc.catface.mds.model.Person">
+        INSERT INTO t_user(user_name, user_phone) VALUES (#{username},#{user_phone})
+    </select>
+
+    <delete id="deletePerson" parameterType="String">
+        DELETE FROM t_user WHERE user_name=#{username}
+    </delete>
+
+    <update id="updatePerson" parameterType="cc.catface.mds.model.Person">
+        UPDATE t_user set user_name=#{username}, user_phone=#{user_phone} WHERE id=#{id}
+    </update>
+
+    <select id="getAllPerson" resultType="cc.catface.mds.model.Person">
+        SELECT id id, user_name username, user_phone user_phone FROM t_user
+    </select>
+
+
+</mapper>

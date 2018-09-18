@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cc.catface.pojo">
+    <!-- 入门案例 -->
+    <select id="listCategory" resultType="Category">
+        select * from category_
+    </select>
+
+
+    <!-- 常规增删改查 -->
+    <insert id="addCategory" parameterType="Category">
+        INSERT INTO category_ (name) VALUES (#{name})
+    </insert>
+
+    <delete id="deleteCategory" parameterType="Category">
+        DELETE FROM category_ WHERE id = #{id}
+    </delete>
+
+    <select id="selectCategory" parameterType="int" resultType="Category">
+        SELECT * FROM category_ WHERE id = #{id}
+    </select>
+
+    <update id="updateCategory" parameterType="Category">
+        UPDATE category_ set name = #{name} WHERE id = #{id}
+    </update>
+
+
+    <!-- 模糊&多条件查询 -->
+    <select id="listCategoryByName" parameterType="string" resultType="Category">
+        SELECT * FROM category_ WHERE name LIKE concat('%', #{0}, '%')
+    </select>
+
+    <select id="listCategoryByIdAndName" parameterType="map" resultType="Category">
+        SELECT * FROM category_ WHERE id > #{id} AND name LIKE concat('%', #{name}, '%')
+    </select>
+
+
+    <!-- 一对多查询 -->
+    <resultMap type="Category" id="categoryBean">
+        <id column="cid" property="id"/>
+        <result column="cname" property="name"/>
+
+        <!-- 一对多的关系 -->
+        <!-- property: 指的是集合属性的值, ofType：指的是集合中元素的类型 -->
+        <collection property="products" ofType="Product">
+            <id column="pid" property="id"/>
+            <result column="pname" property="name"/>
+            <result column="price" property="price"/>
+        </collection>
+    </resultMap>
+
+    <!-- 关联查询分类和产品表 -->
+    <select id="listCategory2" resultMap="categoryBean">
+        select c.*, p.*, c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname' from category_ c left join product_ p on c.id = p.cid
+    </select>
+</mapper>
