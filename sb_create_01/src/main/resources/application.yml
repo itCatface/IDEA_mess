@@ -1,0 +1,4 @@
+# 可使用yml配置[Spring推荐]效果与properties一致
+server:
+    port: 8888
+    context-path: /test
