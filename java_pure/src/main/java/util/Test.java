@@ -5,10 +5,6 @@ import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import domain.InitData;
 import domain.YYJoke341_1;
-import design_pattern.single_instance.Normal;
-import design_pattern.single_instance.Normal2;
-import design_pattern.single_instance.NormalUpgrade;
-import design_pattern.single_instance.Simple;
 import util.en_decrypt.MD5;
 import util.lang.util.DateT;
 import util.lang.util.RegexT;
@@ -496,38 +492,6 @@ public class Test {
         return "return...";
     }
 
-    static void singleInstanceTest() {
-        long l11 = System.currentTimeMillis();
-        Normal.getInstance().show();
-        long l12 = System.currentTimeMillis();
-        Normal.getInstance().show();
-        long l13 = System.currentTimeMillis();
-        System.out.println((l12 - l11) + " || " + (l13 - l12));
-
-
-        long l21 = System.currentTimeMillis();
-        Normal2.getInstance().show();
-        long l22 = System.currentTimeMillis();
-        Normal2.getInstance().show();
-        long l23 = System.currentTimeMillis();
-        System.out.println((l22 - l21) + " || " + (l23 - l22));
-
-
-        long l31 = System.currentTimeMillis();
-        NormalUpgrade.getInstance().show();
-        long l32 = System.currentTimeMillis();
-        NormalUpgrade.getInstance().show();
-        long l33 = System.currentTimeMillis();
-        System.out.println((l32 - l31) + " || " + (l33 - l32));
-
-
-        long l41 = System.currentTimeMillis();
-        Simple.getHelper().show();
-        long l42 = System.currentTimeMillis();
-        Simple.getHelper().show();
-        long l43 = System.currentTimeMillis();
-        System.out.println((l42 - l41) + " || " + (l43 - l42));
-    }
 
 
     static void regexTest() {
