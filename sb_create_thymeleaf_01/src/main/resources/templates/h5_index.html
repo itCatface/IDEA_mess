@@ -1,0 +1,75 @@
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../static/js/js_learn.js" th:src="@{/js/js_learn.js}"></script>
+
+    <!-- javascript代码必须放在<script></script>标签内 | <script>标签一般放在<head>内 -->
+    <script>
+        /* 通过javascript向文档中输出文本 */
+        function hello_js() {
+            js_hello_js()
+        }
+
+        /* 简单的计算器功能 */
+        function simple_calc(x, y) {
+            var x1 = Number(x), y1 = Number(y), result;
+            var obj = document.getElementById("simple_calc_fun");
+            var index = obj.selectedIndex;
+            var calc = obj.options[index].value;
+            console.log("x / y: " + x + " / " + y + " -- " + calc);
+            switch (calc) {
+                case "+":
+                    result = x1 + y1;
+                    break;
+                case "-":
+                    result = x1 - y1;
+                    break;
+                case "*":
+                    result = x1 * y1;
+                    break;
+                case "/":
+                    result = x1 / y1;
+                    break;
+                case "%":
+                    result = x1 % y1;
+                    break;
+            }
+            document.getElementById("num_result").value = result;
+        }
+    </script>
+
+</head>
+<body>
+<p>welcome my JavaScript learning process~~~</p>
+
+
+<!-- 点击事件 -->
+<button type="button" onclick="hello_js()">Hello JavaScript</button>
+<hr/>
+
+
+<!---->
+<p id="hidden
+_text_1">该文本可被javascript隐藏</p>
+<button type="button" onclick="document.getElementById('hidden_text_1').style.display='none'">隐藏该文本</button>
+<button type="button" onclick="document.getElementById('hidden_text_1').style.display='block'">显示该文本</button>
+<hr/>
+
+
+<!---->
+<input type="text" id="num_x" style="width: 50px; text-align: center"/>
+<select id="simple_calc_fun">
+    <option value="+" selected="selected">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+</select>
+<input type="text" id="num_y" style="width: 50px; text-align: center"/> =
+<input type="text" id="num_result" style="width: 50px; text-align: center"/>
+<button type="button" style="margin-left: 20px" onclick="simple_calc(document.getElementById('num_x').value, document.getElementById('num_y').value)">运算</button>
+
+
+</body>
+</html>
