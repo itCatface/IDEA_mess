@@ -15,4 +15,10 @@ public class IndexController {
         return "h5_index";
     }
 
+
+    @RequestMapping("/jquery")
+    public String jquery() {
+        return "h5_index_jquery";
+    }
+
 }

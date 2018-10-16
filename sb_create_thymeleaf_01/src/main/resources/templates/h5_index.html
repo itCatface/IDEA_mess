@@ -109,14 +109,6 @@
         }
 
 
-        /* DOM */
-        var d1 = document.getElementById('d1');
-        p1('文档节点' + document);
-        p1('元素' + d1);
-        p1('属性节点' + d1.attributes[0]);
-        p1('内容节点' + d1.childNodes[0]);
-
-
     </script>
 </head>
 <body>
@@ -185,7 +177,18 @@
 
 
 <!-- js中的DOM -->
-<div id="d1">hello DOM!</div>
+<div id="d1" class="clz1">hello DOM!(d1)</div>
+<div id="d2" class="clz1">hello DOMM!(d1)</div>
+<div id="d3" class="clz1" align="center">hello DOMMM!(d1)</div>
+用户名：<input name="username"/><br/>
+密码：<input name="password"/>
 
 </body>
+<script>
+    /* DOM */
+    js_test_node_concept();
+    document.write('<hr/>');
+
+    js_test_node_get();
+</script>
 </html>

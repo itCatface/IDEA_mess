@@ -5,6 +5,11 @@ div.showing {
     padding: 30px;
 }
 
+div {
+    font-style: italic;
+    color: purple;
+}
+
 .even {
     background-color: red;
 }
@@ -15,4 +20,17 @@ div.showing {
 
 p {
     color: green;
+}
+
+/* jquery使用到的css */
+.pink {
+    background-color: pink;
+}
+
+.green {
+    background-color: green;
+}
+
+.border {
+    border: 1px blue solid;
 }

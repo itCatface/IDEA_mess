@@ -518,3 +518,60 @@ function printTime() {
 function js_test_timer() {
     setTimeout(printTime, 3000);
 }
+
+
+// DOM
+/* 节点概念 */
+function js_test_node_concept() {
+    var d1 = document.getElementById("d1");
+    p1('文档节点' + document);
+    p1('元素' + d1);
+    p1('属性节点' + d1.attributes[0]);
+    p1('内容节点' + d1.childNodes[0]);
+}
+
+
+/* 获取节点 */
+function js_test_node_get() {
+    //
+    document.write('<hr/>' + '通过标签名称获取元素节点<br/>');
+    var divs = document.getElementsByTagName('div');
+    for (var i = 0; i < divs.length; i++) {
+        document.write(divs[i]);
+        document.write('<br/>');
+    }
+    //
+    document.write('<hr/>' + '通过类名获取元素节点<br/>');
+    var clz1s = document.getElementsByClassName('clz1');
+    for (var i = 0; i < clz1s.length; i++) {
+        document.write(clz1s[i]);
+        document.write('<br/>');
+    }
+    //
+    document.write('<hr/>' + '通过表单元素的name获取元素节点<br/>');
+    var names = document.getElementsByName('username');
+    for (var i = 0; i < names.length; i++) {
+        document.write(names[i]);
+        document.write('<br/>');
+    }
+    document.write('<hr/>' + '获取属性节点<br/>');
+    var d3 = document.getElementById('d3')
+    var attrs = d3.attributes;
+    //
+    document.write("div(d3)总共有" + attrs.length + " 个属性，");
+    document.write("分别是:");
+    for (i = 0; i < attrs.length; i++) {
+        document.write("<br>");
+        document.write(attrs[i].nodeName);
+        document.write(":");
+        document.write(attrs[i].nodeValue);
+    }
+    document.write("<br>");
+    document.write("div的id属性值是：" + attrs["id"].nodeValue);
+    //
+    document.write('<hr/>' + '获取内容节点<br/>');
+    var content = d3.childNodes[0];
+    document.write("div的内容节点名是:" + content.nodeName);
+    document.write("<br>");
+    document.write("div的内容节点值是:" + content.nodeValue);
+}
