@@ -282,6 +282,54 @@ function js_test_jqeury() {
 
     /* 事件- */
     /* ajax- */
+    $("#name_ajax").keyup(function () {
+        var page = "http://how2j.cn/study/checkName.jsp";
+        var value = $(this).val();
+        $.ajax({
+            url: page,
+            data: {"name": value},
+            success: function (result) {
+                $("#span_check_result").html(result);
+            },
+            error: function (result) {
+                $("#span_check_result").html(result);
+            }
+        });
+    });
+    $("#name_get").keyup(function () {
+        var page = "http://how2j.cn/study/checkName.jsp";
+        var value = $(this).val();
+        $.get(
+            page,
+            {"name": value},
+            function (result) {
+                $("#span_check_result").html(result);
+            }
+        )
+    });
+    $("#name_post").keyup(function () {
+        var page = "http://how2j.cn/study/checkName.jsp";
+        var value = $(this).val();
+        $.post(
+            page,
+            {"name": value},
+            function (result) {
+                $("#span_check_result").html(result);
+            }
+        )
+    });
+    $("#name_easy").keyup(function () {
+        var page = "http://how2j.cn/study/checkName.jsp?name=" + $(this).val();
+        $("#span_check_result").load(page);
+    });
+    // 格式化form下的输入数据
+    $("input").keyup(function () {
+        var data = $("#form_test").serialize();
+        var url = "http://www.catface.cc";
+        var link = url + "?" + data;
+        $("#a_test").html(link);
+        $("#a_test").attr("href", link);
+    })
 
 
 }
