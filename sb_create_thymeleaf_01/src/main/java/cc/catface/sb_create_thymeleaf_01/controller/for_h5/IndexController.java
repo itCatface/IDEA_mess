@@ -21,4 +21,9 @@ public class IndexController {
         return "h5_index_jquery";
     }
 
+
+    @RequestMapping("/bootstrap")
+    public String bootstrap() {
+        return "h5_index_bootstrap";
+    }
 }
