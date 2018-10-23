@@ -26,4 +26,16 @@ public class IndexController {
     public String bootstrap() {
         return "h5_index_bootstrap";
     }
+
+
+    @RequestMapping("/bootstrap2")
+    public String bootstrap2() {
+        return "h5_index_bootstrap_2";
+    }
+
+
+    @RequestMapping("/bootstrap3")
+    public String bootstrap3() {
+        return "h5_index_bootstrap_3";
+    }
 }
