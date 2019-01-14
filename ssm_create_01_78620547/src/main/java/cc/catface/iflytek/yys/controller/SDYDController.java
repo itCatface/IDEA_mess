@@ -104,4 +104,37 @@ public class SDYDController {
     public String orderNotify() {
         return FileT.read(Common.rootPathSD + "orderNotify.txt");
     }
+
+
+    /** 补换卡 */
+    @RequestMapping("/crm/changeCard/realNamelogonWithCerty")
+    @ResponseBody
+    public String realNamelogonWithCerty() {
+        return FileT.read(Common.rootPathSD + "realNamelogonWithCerty.txt");
+    }
+
+    @RequestMapping("/crm/changeCard/orderChkAndCalcFee")
+    @ResponseBody
+    public String orderChkAndCalcFee() {
+        return FileT.read(Common.rootPathSD + "orderChkAndCalcFee.txt");
+    }
+
+    @RequestMapping("/crm/changeCard/orderCommit")
+    @ResponseBody
+    public String orderCommit() {
+        return FileT.read(Common.rootPathSD + "orderCommit.txt");
+    }
+
+    @RequestMapping("/crm/changeCard/writeCard")
+    @ResponseBody
+    public String writeCard() {
+        return FileT.read(Common.rootPathSD + "writeCard.txt");
+    }
+
+    @RequestMapping("/crm/changeCard/highQualityTelCheck")
+    @ResponseBody
+    public String highQualityTelCheck() {
+        return FileT.read(Common.rootPathSD + "highQualityTelCheck.txt");
+    }
+
 }

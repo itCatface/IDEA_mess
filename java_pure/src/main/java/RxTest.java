@@ -3,6 +3,8 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
+import java.util.*;
+
 /**
  Created by catfaceWYH --> tel|wechat|qq 130 128 92925
  */
@@ -10,7 +12,43 @@ public class RxTest {
     private static final String TAG = RxTest.class.getSimpleName();
 
     public static void main(String[] args) {
-        rx01();
+        //        rx01();
+
+        String[] strs = {"张三", "李四"};
+        Double[] nums = {2.12d, 32.34d};
+        //        System.out.println(Arrays.toString(strs));
+        //        System.out.println(strs.toString());
+
+        Map<String, String> map = new HashMap<>();
+        map.put("zhangsan", "111");
+        map.put("wanger", "222");
+        //        System.out.println(map.toString());
+
+
+        List<String> list= new ArrayList<>();
+        list.add("zhangsan");
+        list.add("zhangsan1");
+
+        sout(strs);
+        sout(nums);
+
+        sout(map);
+
+        sout("dsf");
+        sout(list);
+    }
+
+
+    private static void sout(Object t) {
+        if (t instanceof String) {
+            System.out.println(t);
+        } else if (t instanceof Object[]) {
+            System.out.println(Arrays.toString((Object[]) t));
+        }else if (t instanceof List){
+            System.out.println(t.toString());
+        }else if (t instanceof Map) {
+            System.out.println(t.toString());
+        }
     }
 
 

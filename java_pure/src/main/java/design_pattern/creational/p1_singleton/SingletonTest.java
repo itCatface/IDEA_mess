@@ -13,28 +13,35 @@ public class SingletonTest {
         testNormal2Singleton();
         testNormalPreSingleton();
         testSimpleSingleton();
+        testEnumSingleton();
     }
 
     private static void testNormalSingleton() {
-        NormalSingleton.getInstance().show();
-        NormalSingleton.getInstance().show();
+        SingletonDCL.getInstance().show();
+        SingletonDCL.getInstance().show();
     }
 
 
     private static void testNormal2Singleton() {
-        Normal2Singleton.getInstance().show();
-        Normal2Singleton.getInstance().show();
+        SingletonDCLPre.getInstance().show();
+        SingletonDCLPre.getInstance().show();
     }
 
 
     private static void testNormalPreSingleton() {
-        NormalPreSingleton.getInstance().show();
-        NormalPreSingleton.getInstance().show();
+        SingletonDCLPreVolatile.getInstance().show();
+        SingletonDCLPreVolatile.getInstance().show();
     }
 
 
     private static void testSimpleSingleton() {
-        SimpleSingleton.getHolder().show();
-        SimpleSingleton.getHolder().show();
+        SingletonHolder.getHolder().show();
+        SingletonHolder.getHolder().show();
+    }
+
+
+    private static void testEnumSingleton() {
+        SingletonEnum.INSTANCE.doSomething();
+        SingletonEnum.INSTANCE.doSomething();
     }
 }

@@ -3,15 +3,15 @@ package design_pattern.creational.p1_singleton;
 /**
  Created by catfaceWYH --> tel|wechat|qq 130 128 92925
  */
-public class NormalSingleton {
+public class SingletonDCL {
 
-    private static NormalSingleton mInstance;
+    private static SingletonDCL mInstance;
 
-    public static NormalSingleton getInstance() {
+    public static SingletonDCL getInstance() {
         if (null == mInstance) {
-            synchronized (NormalSingleton.class) {
+            synchronized (SingletonDCL.class) {
                 if (null == mInstance) {
-                    mInstance = new NormalSingleton();
+                    mInstance = new SingletonDCL();
                 }
             }
         }
@@ -20,7 +20,7 @@ public class NormalSingleton {
     }
 
 
-    private NormalSingleton() {
+    private SingletonDCL() {
         System.out.println(getClass().getSimpleName() + " --> 创建..." + mInstance);
     }
 

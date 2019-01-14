@@ -2,20 +2,22 @@ package design_pattern.creational.p1_singleton;
 
 /**
  Created by catfaceWYH --> tel|wechat|qq 130 128 92925
+
+ 推荐使用该方式创建单例
  */
-public class SimpleSingleton {
+public class SingletonHolder {
 
     private static class Holder {
-        private static final SimpleSingleton holder = new SimpleSingleton();
+        private static final SingletonHolder holder = new SingletonHolder();
     }
 
 
-    public static SimpleSingleton getHolder() {
+    public static SingletonHolder getHolder() {
         return Holder.holder;
     }
 
 
-    private SimpleSingleton() {
+    private SingletonHolder() {
         System.out.println(getClass().getSimpleName() + " --> 创建..." + Holder.holder);
     }
 
